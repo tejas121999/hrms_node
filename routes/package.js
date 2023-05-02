@@ -1,0 +1,18 @@
+const express = require("express")
+const router = express.Router()
+const packageControler = require('../controllers/package')
+const verify = require("../middleware/JWT")
+
+router.post('/getPackage',verify.validateToken, packageControler.getPackage)
+router.post('/updatePackage',verify.validateToken, packageControler.update)
+router.post('/addPackage',verify.validateToken, packageControler.addPackage)
+router.post('/getOnePackage',verify.validateToken, packageControler.getSingle)
+router.post('/removeLeaveFromPackage',verify.validateToken, packageControler.removeLeaveFromPackage)
+router.post('/addLeaveToPackage',verify.validateToken, packageControler.addLeavesToPackage)
+router.post('/getPackageForEmp',verify.validateToken, packageControler.getPackageForEmp)
+router.post('/removeComponentFromPackage',verify.validateToken, packageControler.removeComponentFromPackage)
+router.post('/addComponentToPackage',verify.validateToken, packageControler.addComponentToPackage)
+router.post('/updateComponentToPackage',verify.validateToken, packageControler.updateComponentToPackage)
+router.post('/deletePackage',verify.validateToken, packageControler.deletePackage)
+router.post('/getPackageForEmployee',verify.validateToken, packageControler.getPackageofEmployee)
+module.exports = router
